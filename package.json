@@ -1,0 +1,31 @@
+{
+  "name": "back-web-2morrowtools",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cpejr/back-web-2morrowtools.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cpejr/back-web-2morrowtools/issues"
+  },
+  "homepage": "https://github.com/cpejr/back-web-2morrowtools#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "jsonwebtoken": "^9.0.2",
+    "mongodb": "^6.2.0",
+    "mongoose": "^8.0.0",
+    "nodemon": "^3.0.1",
+    "zod": "^3.22.4",
+    "zod-express-middleware": "^1.4.0"
+  }
+}
