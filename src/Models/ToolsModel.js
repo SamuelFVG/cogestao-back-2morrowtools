@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 
 const Schema = mongoose.Schema;
 
-const IASchema = new mongoose.Schema({
+const ToolsSchema = new mongoose.Schema({
   name:{
     type: String,
     unique:true
@@ -11,6 +11,6 @@ const IASchema = new mongoose.Schema({
   description:String
 });
 
-const IAModel = mongoose.model('IA', IASchema);
+const ToolsModel = mongoose.model('Tools', ToolsSchema);
 
-module.exports = IAModel;
+module.exports = ToolsModel;

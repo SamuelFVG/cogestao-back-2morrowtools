@@ -1,9 +1,9 @@
-const IAModel = require("../Models/IAModel");
+const ToolsModel = require("../Models/ToolsModel");
 
-class IAController {
+class ToolsController {
   async create(req, res) {
     try{
-      const modelo = await IAModel.create(req.body);
+      const modelo = await ToolsModel.create(req.body);
     return res.status(200).json(modelo);
     } catch (error) {
       res.status(500).json({"messagem" : "Nome de ferramenta duplicado"});
@@ -11,14 +11,14 @@ class IAController {
   }
 
   async read(req, res) {
-    const modelos = await IAModel.find();
+    const modelos = await ToolsModel.find();
     return res.status(200).json(modelos);
   }
 
   async destroy(req, res) {
     const { id } = req.params;
 
-    await IAModel.findByIdAndDelete(id);
+    await ToolsModel.findByIdAndDelete(id);
 
     return res.status(200).json({"mensagem": "Usuario deletado com sucesso!"});
   }
@@ -26,9 +26,9 @@ class IAController {
   async update(req, res) {
     const { id } = req.params;
 
-    const modelo = await IAModel.findByIdAndUpdate(id, req.body, {new:true});
+    const modelo = await ToolsModel.findByIdAndUpdate(id, req.body, {new:true});
     return res.status(200).json(modelo);
   }
 }
 
-module.exports = new IAController();
+module.exports = new ToolsController();
