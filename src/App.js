@@ -14,3 +14,6 @@ app.use("*", (req, res) => {
 });
 
 module.exports = app;
+
+//kfEZlhEaI28qaeI2
+//mongodb+srv://zelucaspomps15:<password>@cluster0.awlctkf.mongodb.net/?retryWrites=true&w=majority
