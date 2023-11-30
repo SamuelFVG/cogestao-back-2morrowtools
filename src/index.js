@@ -3,4 +3,4 @@ const Loaders = require("./Loaders/index");
 
 Loaders.start();
 
-app.listen(process.env.PORT, () => console.log("Servidor Rodando!"));
+app.listen(process.env.PORT);
