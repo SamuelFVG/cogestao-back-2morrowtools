@@ -4,9 +4,9 @@ const { default: mongoose } = require("mongoose");
 
 const create = validateRequest({
   body: z.object({
-    nome: z.string({ required_error: "O nome é obrigatório" }),
-    urlImagem: z.string({ require_error: "A url da imagem é obrigatória" }),
-    descricao: z.string({ require_error: "A descrição é obrigatória" }),
+    name: z.string({ required_error: "O nome é obrigatório" }),
+    urlImage: z.string({ require_error: "A url da imagem é obrigatória" }),
+    description: z.string({ require_error: "A descrição é obrigatória" }),
   }),
 });
 
@@ -18,9 +18,9 @@ const destroy = validateRequest({
 
 const update = validateRequest({
   body: z.object({
-    nome: z.string({ required_error: "O nome é obrigatório" }),
-    urlImagem: z.string({ require_error: "A url da imagem é obrigatória" }),
-    descricao: z.string({ require_error: "A descrição é obrigatória" }),
+    name: z.string({ required_error: "O nome é obrigatório" }),
+    urlImage: z.string({ require_error: "A url da imagem é obrigatória" }),
+    description: z.string({ require_error: "A descrição é obrigatória" }),
   }),
   params: z.object({
     id: z.custom(mongoose.isValidObjectId, "O Id não é válido"),

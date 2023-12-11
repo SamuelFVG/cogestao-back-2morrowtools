@@ -3,9 +3,9 @@ const IAModel = require("../Models/IAModel");
 class IAController {
   async create(req, res) {
     try {
-      const ferramenta = await IAModel.create(req.body);
+      const tool = await IAModel.create(req.body);
 
-      return res.status(200).json(ferramenta);
+      return res.status(200).json(tool);
     } catch (error) {
       res.status(500).json({ message: "Deu ruim aqui", error: error.message });
     }
@@ -13,9 +13,9 @@ class IAController {
 
   async read(req, res) {
     try {
-      const ferramenta = await IAModel.find();
+      const tool = await IAModel.find();
 
-      return res.status(200).json(ferramenta);
+      return res.status(200).json(tool);
     } catch (error) {
       res.status(500).json({ message: "Deu ruim aqui", error: error.message });
     }
@@ -25,12 +25,11 @@ class IAController {
     try {
       const { id } = req.params;
 
-      const ferramentaEncontrada = await IAModel.findById(id);
+      const toolFinded = await IAModel.findById(id);
 
-      if (!ferramentaEncontrada)
-        return res.status(404).json({ message: "Ferramenta não foi encontrada" });
+      if (!toolFinded) return res.status(404).json({ message: "Ferramenta não foi encontrada" });
 
-      await ferramentaEncontrada.deleteOne();
+      await toolFinded.deleteOne();
       return res.status(200).json({ mensagem: "Ferramenta deletada com sucesso!" });
     } catch (error) {
       res.status(500).json({ message: "Deu ruim aqui", error: error.message });
@@ -41,12 +40,11 @@ class IAController {
     try {
       const { id } = req.params;
 
-      const ferramentaEncontrada = await IAModel.findById(id);
+      const toolFinded = await IAModel.findById(id);
 
-      if (!ferramentaEncontrada)
-        return res.status(404).json({ message: "Ferramenta não foi encontrada" });
+      if (!toolFinded) return res.status(404).json({ message: "Ferramenta não foi encontrada" });
 
-      await ferramentaEncontrada.set(req.body).save();
+      await toolFinded.set(req.body).save();
       return res.status(200).json({ mensagem: "Ferramenta mudada com sucesso!" });
     } catch (error) {
       res.status(500).json({ message: "Deu ruim aqui", error: error.message });
