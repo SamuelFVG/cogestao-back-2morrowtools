@@ -1,13 +1,13 @@
-const IAModel = require("../Models/IAModel");
+const ToolModel = require("../Models/ToolModel");
 
-class IAController {
+class ToolController {
   async create(req, res) {
     try {
-      const ferramenta = await IAModel.create(req.body);
+      const tool = await IAModel.create(req.body);
 
-      const { descrição, ...novaFerramenta } = usuario.toObject();
+      const { descrição, ...newTool } = usuario.toObject();
 
-      return res.status(200).json(novaFerramenta);
+      return res.status(200).json(newTool);
     } catch (error) {
       res.status(500).json({ message: "Deu ruim aqui!", error: error.message });
     }
@@ -15,8 +15,8 @@ class IAController {
 
   async read(req, res) {
     try {
-      const ferramentas = await IAModel.find();
-      return res.status(200).json(ferramentas);
+      const tools = await IAModel.find();
+      return res.status(200).json(tools);
     } catch (error) {
       res.status(500).json({ message: "Deu ruim aqui!", error: error.message });
     }
@@ -25,11 +25,11 @@ class IAController {
   async destroy(req, res) {
     try {
       const { id } = req.params;
-      const ferramentaEncontrada = await IAModel.findById(id);
-      if (!ferramentaEncontrada) {
+      const toolFounded = await IAModel.findById(id);
+      if (!toolFounded) {
         return res.status(404).json({ message: "Ferramenta não encontrada" });
       }
-      await ferramentaEncontrada.deleteOne();
+      await toolFounded.deleteOne();
       return res.status(200).json({ mensagem: "Ferramenta deletada com sucesso!" });
     } catch (error) {
       res.status(500).json({ message: "Deu ruim aqui!", error: error.message });
@@ -40,18 +40,17 @@ class IAController {
     try {
       const { id } = req.params;
 
-      const ferramentaEncontrada = await IAModel.findById(id);
+      const toolFounded = await IAModel.findById(id);
 
-      if (!ferramentaEncontrada)
-        return res.status(404).json({ message: "Ferramenta não encontrada" });
+      if (!toolFounded) return res.status(404).json({ message: "Ferramenta não encontrada" });
 
-      const ferramenta = await ferramentaEncontrada.set(req.body).save();
+      const ferramenta = await toolFounded.set(req.body).save();
 
-      return res.status(200).json(ferramentaEncontrada);
+      return res.status(200).json(toolFounded);
     } catch (error) {
       res.status(500).json({ message: "Deu ruim aqui!", error: error.message });
     }
   }
 }
 
-module.exports = new IAController();
+module.exports = new ToolController();

@@ -1,12 +1,12 @@
 const { Router } = require("express");
-const IAController = require("./Controllers/IAController");
-const IAValidator = require("./Validators/IAValidator");
+const ToolController = require("./Controllers/ToolController");
+const ToolValidator = require("./Validators/ToolValidator");
 
 const routes = Router();
 
-routes.post("/IA", IAValidator.create, IAController.create);
-routes.get("/IA/", IAController.read);
-routes.delete("/IA/:id", IAValidator.destroy, IAController.destroy);
-routes.put("/IA/:id", IAValidator.update, IAController.update);
+routes.post("/Tool", ToolValidator.create, ToolController.create);
+routes.get("/Tool/", ToolController.read);
+routes.delete("/Tool/:id", ToolValidator.destroy, ToolController.destroy);
+routes.put("/Tool/:id", ToolValidator.update, ToolController.update);
 
 module.exports = routes;
